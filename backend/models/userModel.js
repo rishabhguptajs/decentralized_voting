@@ -11,7 +11,7 @@ const userSchema = mongoose.Schema({
         unique: true,
     },
     voterID: {
-        type: Number,
+        type: String,
         required: true,
     },
     password: {
@@ -20,7 +20,7 @@ const userSchema = mongoose.Schema({
         minlength: 6
     },
     hasVoted: {
-        type: String,
+        type: Boolean,
         ref: 'Entity',
     },
 })
