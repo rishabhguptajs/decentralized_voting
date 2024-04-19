@@ -22,6 +22,7 @@ const userSchema = mongoose.Schema({
     hasVoted: {
         type: Boolean,
         ref: 'Entity',
+        default: false
     },
 })
 

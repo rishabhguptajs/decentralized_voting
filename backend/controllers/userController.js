@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import { comparePassword, hashPassword } from "../helpers/authHelper.js";
 import User from "../models/userModel.js";
 import jwt from 'jsonwebtoken';
@@ -65,6 +66,26 @@ export const userLoginController = async(req, res) => {
     } catch (error) {
         res.status(500).json({
             message: "Error while logging in user",
+            error: error.message,
+            success: false
+        })
+    }
+}
+
+export const userGetProfileController = async(req, res) => {
+    try {
+        // const aadhar = new ObjectId(req.user.aadhar);
+        const aadhar = req.user.aadhar;
+        const user = await User.findOne({aadhar});
+        console.log(user)
+        res.status(200).json({
+            message: "User profile fetched successfully",
+            success: true,
+            user: user
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: "Error while getting user profile",
             error: error.message,
             success: false
         })
