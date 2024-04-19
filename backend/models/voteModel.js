@@ -15,13 +15,14 @@ const voteSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    created_at: {
+    voted_at: {
         type: Date,
         required: true,
         default: Date.now
     },
-    transanctionHash:{
+    transactionHash:{
         type: String,
+        required: true
     }
 })
 

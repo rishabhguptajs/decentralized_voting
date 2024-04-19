@@ -1,4 +1,3 @@
-import { ObjectId } from "mongodb";
 import { comparePassword, hashPassword } from "../helpers/authHelper.js";
 import User from "../models/userModel.js";
 import jwt from 'jsonwebtoken';
@@ -74,10 +73,8 @@ export const userLoginController = async(req, res) => {
 
 export const userGetProfileController = async(req, res) => {
     try {
-        // const aadhar = new ObjectId(req.user.aadhar);
         const aadhar = req.user.aadhar;
-        const user = await User.findOne({aadhar});
-        console.log(user)
+        const user = await User.findOne({ aadhar });
         res.status(200).json({
             message: "User profile fetched successfully",
             success: true,
