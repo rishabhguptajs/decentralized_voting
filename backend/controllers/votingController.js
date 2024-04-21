@@ -18,3 +18,15 @@ export const votePostController = async(req, res) => {
         })
     }
 }
+
+export const getVotesController = async(req, res) => {
+    try {
+        
+    } catch (error) {
+        res.status(500).json({
+            message: "Error in fetching votes. Please try again.",
+            error: error.message,
+            success: false
+        })
+    }
+}

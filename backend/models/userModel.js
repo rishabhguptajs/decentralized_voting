@@ -24,6 +24,10 @@ const userSchema = mongoose.Schema({
         ref: 'Entity',
         default: false
     },
+    isSuperAdmin: {
+        type: Boolean,
+        default: false
+    },
 })
 
 const User = mongoose.model('User', userSchema);
