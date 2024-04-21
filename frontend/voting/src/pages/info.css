@@ -1,0 +1,40 @@
+.big-card {
+  width: 1000px; /* Adjust width as needed */
+  height: 600px;
+  position: relative;
+  z-index: 0;
+  border: 1px solid black; /* Adjust border style as needed */
+  margin: 96px 90px; /* Center the card horizontally */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: larger;
+  border-radius: 5px;
+}
+        
+.overlapping-heading {
+  position: absolute;
+  top: -30px; /* Adjust top position as needed */
+  left: 60px; /* Adjust left position as needed */
+  background-color: rgb(88, 202, 237);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1;
+  border: black 1px solid;
+  font-size: larger;
+  width: 850px;
+  
+}
+
+        
+        .info-container {
+          /* display: flex; */
+          justify-content: center;
+          align-items: center;
+          height: fit-content;
+          list-style-type: none;
+          padding: 50px;
+        }
+        
+.card-title{
+  color: white;
+}
