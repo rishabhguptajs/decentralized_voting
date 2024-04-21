@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import User from '../models/userModel.js';
 
 export const isLoggedIn = async(req, res, next) => {
     try {
@@ -15,7 +16,8 @@ export const isLoggedIn = async(req, res, next) => {
 
 export const isSuperAdmin = async(req, res, next) => {
     try {
-        if(req.user.isSuperAdmin){
+        const user = await User.findOne({ aadhar: req.user.aadhar });
+        if(user.isSuperAdmin){
             next();
         } else {
             res.status(401).json({ 

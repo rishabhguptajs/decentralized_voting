@@ -1,9 +1,10 @@
 import express from 'express'
-import { newContestController } from '../controllers/contestController.js'
-import { isSuperAdmin } from '../middlewares/authMiddleware.js';
+import { getContestsController, newContestController } from '../controllers/contestController.js'
+import { isLoggedIn, isSuperAdmin } from '../middlewares/authMiddleware.js';
 
 const router = express.Router()
 
-router.post('/new', isSuperAdmin, newContestController);
+router.post('/new', isLoggedIn, isSuperAdmin, newContestController);
+router.get('/', isLoggedIn, getContestsController);
 
 export default router

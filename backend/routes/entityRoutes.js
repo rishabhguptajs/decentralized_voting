@@ -1,9 +1,10 @@
 import express from 'express'
-import { newEntityController } from '../controllers/entityController.js';
-import { isSuperAdmin } from '../middlewares/authMiddleware.js';
+import { deleteEntityController, newEntityController } from '../controllers/entityController.js';
+import { isLoggedIn, isSuperAdmin } from '../middlewares/authMiddleware.js';
 
 const router = express.Router()
 
-router.post('/new', isSuperAdmin, newEntityController);
+router.post('/new', isLoggedIn, isSuperAdmin, newEntityController);
+router.delete('/delete/:id', isLoggedIn, isSuperAdmin, deleteEntityController);
 
 export default router
