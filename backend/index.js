@@ -7,6 +7,7 @@ import votingRoutes from './routes/votingRoutes.js'
 import contestRoutes from './routes/contestRoutes.js'
 import entityRoutes from './routes/entityRoutes.js'
 import './extras/contestScheduler.js'
+import cors from 'cors'
 
 dotenv.config()
 connectDB()
@@ -15,6 +16,14 @@ const app = express()
 
 app.use(express.json())
 app.use(morgan('dev'))
+
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+}
+
+app.use(cors(corsOptions))
 
 app.use('/api/users', userRoutes);
 app.use('/api/voting', votingRoutes);
